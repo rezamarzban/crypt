@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES Encryption</title>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+</head>
+<body>
+    <h1>AES Encryption with User Input</h1>
+    <textarea id="inputText" placeholder="Enter text here" rows="4" cols="50"></textarea><br><br>
+    <input type="password" id="password" placeholder="Enter password"><br><br>
+    <button onclick="encrypt()">Encrypt</button><br><br>
+    <textarea id="outputText" placeholder="Encrypted text will appear here" rows="4" cols="50" readonly></textarea><br><br>
+
+    <script>
+        function encrypt() {
+            var text = document.getElementById("inputText").value;
+            var password = document.getElementById("password").value;
+            var encrypted = CryptoJS.AES.encrypt(text, password).toString();
+            document.getElementById("outputText").value = encrypted;
+        }
+    </script>
+</body>
+</html>
